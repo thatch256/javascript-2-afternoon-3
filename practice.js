@@ -91,12 +91,15 @@ multiply(4, 3, function(answer){
 */
 
 function contains(arr, name, callback) {
-  for(i = 0; i < arr.length; i++) {
-    if(arr[name] === true)
-      callback("True") 
-      else {callback("False")}
+  for(let i = 0; i < arr.length; i++) {
+    if (arr[i] === name) { 
+        callback(true) 
+       } else {
+         callback(false)
+        }
+    }
   }
-}
+
 
 // Do not edit the code below.
 contains(names, 'Colt', function(result){
@@ -119,7 +122,7 @@ contains(names, 'Colt', function(result){
 
 function uniq(array, callback) {
   for(let i = 0; i < array.length; i++) {
-      for(let j = i; j < array.length; i++) {
+      for(let j = i; j < array.length; j++) {
         if(array[i] === array[j] && i !== j) {
           array.splice(j, 1)
           j--
@@ -144,7 +147,11 @@ uniq(names, function(uniqArr){
   For each name in the array, invoke the callback and pass in the name and the name's index as arguments.
 */
 
-//Code Here 
+function each(array, callback) {
+  for(let i = 0; i < array.length; i++) {
+    callback(array[i], i)
+    }
+}
 
 // Do not edit the code below.
 each(names, function(item, indice){
@@ -161,7 +168,13 @@ each(names, function(item, indice){
   When the correct user object is found, invoke the callback with the user object as an argument.
 */
 
-// Code here
+function getUserById(users, id, callback) {
+  for (i = 0; i <users.length; i++) {
+    if (users[i].id === id) {
+      callback(users[i])
+    }
+  }
+}
 
 // Do not edit the code below.
 var users = [
